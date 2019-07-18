@@ -1,0 +1,27 @@
+'''
+another approach.. if u don't understand this, open other file.
+can't explain..! understand the code..! :)
+did  by sandeep. if any doubts call : 9515305487
+'''
+
+n = int(input())
+def fun_strings(n):
+    a_c, e_c, i_c, o_c, u_c = 1, 1, 1, 1, 1
+    t_a_c, t_e_c, t_i_c, t_o_c, t_u_c = 1, 1, 1, 1, 1
+    mod = 1000000007
+    while(n-1 > 0):
+        t_a_c = (e_c + i_c + u_c)%mod
+        t_e_c = (a_c + i_c)%mod
+        t_i_c = (e_c + o_c)%mod
+        t_o_c = (i_c)%mod
+        t_u_c = (i_c + o_c)%mod
+        a_c = t_a_c % mod 
+        e_c = t_e_c % mod 
+        i_c = t_i_c % mod
+        o_c = t_o_c % mod
+        u_c = t_u_c % mod
+        n-=1
+        
+    return (t_a_c + t_e_c + t_i_c + t_o_c + t_u_c )%mod    
+
+print(fun_strings(n))
