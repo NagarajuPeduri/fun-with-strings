@@ -1,0 +1,30 @@
+def ways(n):
+    
+    arr = []
+    for i in range(2):
+        arr.append([1]*5)
+    
+    mod = 1000000007
+    
+    for i in range(1, n):
+        for j in range(5):
+            if j == 0:
+                arr[i%2][j] = arr[(i-1)%2][1]%mod
+            elif j == 1:
+                arr[i%2][j] = (arr[(i-1)%2][0]%mod + arr[(i-1)%2][2]%mod)%mod
+            elif j == 2:
+                arr[i%2][j] = (arr[(i-1)%2][0]%mod + arr[(i-1)%2][1]%mod + arr[(i-1)%2][3]%mod + arr[(i-1)%2][4]%mod)%mod
+            elif j == 3:
+                arr[i%2][j] = (arr[(i-1)%2][4]%mod + arr[(i-1)%2][2]%mod)%mod
+            elif j == 4:
+                arr[i%2][j] = arr[(i-1)%2][0]%mod
+                
+    ans = 0
+    for i in range(5):
+        ans += arr[(n-1)%2][i]%mod
+        
+    print(ans)
+
+
+n = int(input())
+ways(n)
