@@ -23,7 +23,7 @@ def ways(n):
     for i in range(5):
         ans += arr[(n-1)%2][i]%mod
         
-    print(ans)
+    print(ans%mod)
 
 
 n = int(input())
